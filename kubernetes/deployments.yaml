@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: streaming-app
-        image: kaseykim7123/24kng_webpages:ab7f4fb228d2a1802fd7705c68038274844ca647
+        image: kaseykim7123/24kng_webpages:00770d3aa0da510e1b04f5af368e457ab090fbf0
         ports:
         - containerPort: 8000
 
