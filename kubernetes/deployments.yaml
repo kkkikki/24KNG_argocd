@@ -15,9 +15,9 @@ spec:
       containers:
       - name: streaming-app
 <<<<<<< HEAD
-        image: kaseykim7123/24kng_webpages:742b033e4ab1290e754c364eea4450c6e551efec
+        image: kaseykim7123/24kng_webpages:ac9875105aaf574fc155996108d9919be4bdc487
 =======
-        image: kaseykim7123/24kng_webpages:1b87d9e02440e764b8642ffe88072ea8d7e31ea1
+        image: kaseykim7123/24kng_webpages:ac9875105aaf574fc155996108d9919be4bdc487
 >>>>>>> parent of 8cb98e5 (edit service type to ClusterIP)
         ports:
         - containerPort: 8000
