@@ -17,9 +17,6 @@ spec:
         image: kaseykim7123/24kng_webpages:latest
         ports:
         - containerPort: 8000
-        env:
-        - name: DATABASE_URL
-          value: "mysql://user:password@db-service:3306/dbname"
         volumeMounts:
         - name: ssl
           mountPath: /app/vod/ssl/*
