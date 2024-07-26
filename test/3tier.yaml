@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: vxztu2/0726kng
+        image: kaseykim7123/24kng_webpages
         ports:
         - containerPort: 8000
         env:
@@ -27,7 +27,7 @@ spec:
           value: "mysql://user:password@db-service:3306/dbname"
         volumeMounts:
         - name: ssl
-          mountPath: /app/ssl
+          mountPath: /app/vod/ssl
       volumes:
       - name: ssl
         emptyDir: {}
