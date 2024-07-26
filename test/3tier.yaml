@@ -131,11 +131,13 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: LoadBalancer
   selector:
     app: nginx
   ports:
-  - port: 80
-    targetPort: 80
-  - port: 443
-    targetPort: 443
+    - name: http  # 이 줄을 추가
+      port: 80
+      targetPort: 80
+    - name: https  # 이 줄을 추가
+      port: 443
+      targetPort: 443
+  type: LoadBalancer
