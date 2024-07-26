@@ -1,0 +1,19 @@
+jobs:
+  deploy:
+    steps:
+      - name: Create k8s Secret
+        run: |
+          cat <<EOF > ssl-secret.yaml
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            name: ssl-secret
+          type: Opaque
+          stringData:
+            fullchain.pem: |
+              ${{ secrets.FULLCHAIN_PEM }}
+            privkey.pem: |
+              ${{ secrets.PRIVKEY_PEM }}
+          EOF
+      - name: Apply Secret
+        run: kubectl apply -f ssl-secret.yaml
