@@ -19,7 +19,7 @@ spec:
         - containerPort: 8000
         volumeMounts:
         - name: ssl
-          mountPath: /app/vod/ssl/*
+          mountPath: /app/vod/ssl/
       volumes:
       - name: ssl
         emptyDir: {}
@@ -71,6 +71,17 @@ spec:
       - name: ssl
         secret:
           secretName: ssl-secret
+
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-repo-creds
+  namespace: argocd
+data:
+  fullchain.pem: ${ARGOCD_FULLCHAIN_PEM}
+  privkey.pem: ${ARGOCD_PRIVKEY_PEM}
 
 ---
 apiVersion: v1
@@ -137,3 +148,4 @@ data:
             }
         }
     }
+
