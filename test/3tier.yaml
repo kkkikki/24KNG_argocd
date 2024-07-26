@@ -17,13 +17,6 @@ spec:
         image: kaseykim7123/24kng_webpages:latest
         ports:
         - containerPort: 8000
-        env:
-        - name: DEBUG
-          value: "0"
-        - name: SECRET_KEY
-          value: "your_secret_key_here"
-        - name: DATABASE_URL
-          value: "mysql://user:password@db-service:3306/dbname"
         volumeMounts:
         - name: ssl
           mountPath: /app/vod/ssl/*
@@ -122,9 +115,7 @@ spec:
       - name: nginx-conf
         configMap:
           name: nginx-conf
-      - name: ssl
-        secret:
-          secretName: ssl-secret
+
 
 ---
 apiVersion: v1
