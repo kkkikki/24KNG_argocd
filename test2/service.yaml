@@ -10,18 +10,3 @@ spec:
       port: 8000
       targetPort: 8000
   type: ClusterIP
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-spec:
-  selector:
-    app: nginx
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer  # 또는 NodePort, 환경에 따라 선택
