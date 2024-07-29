@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: vod
-        image: kaseykim7123/24kng_web:latest
+        image: kaseykim7123/24kng_webpages:e125ce9d65424a39f3717cc53138bd59d28f51c9
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
