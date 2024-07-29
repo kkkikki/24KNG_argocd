@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: vod
-        image: kaseykim7123/24kng_webpages:latest
+        image: kaseykim7123/24kng_web:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
@@ -33,3 +33,32 @@ spec:
           value: "3.36.115.185"
         - name: DB_PORT
           value: "3306"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
