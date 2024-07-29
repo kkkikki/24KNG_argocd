@@ -64,24 +64,33 @@ spec:
           subPath: nginx.conf
         - name: ssl
           mountPath: /etc/nginx/ssl
+        env:
+        - name: FILE_PATH1
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: file-path1
+        - name: FILE_PATH2
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: file-path2
       volumes:
       - name: nginx-conf
         configMap:
-          name: nginx-conf
+          name: nginx-config
       - name: ssl
         secret:
           secretName: ssl-secret
-
-
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: argocd-repo-creds
-  namespace: argocd
+  name: ssl-secret
+type: Opaque
 data:
-  fullchain.pem: ${ARGOCD_FULLCHAIN_PEM}
-  privkey.pem: ${ARGOCD_PRIVKEY_PEM}
+  fullchain.pem: ? # 첫 번째 파일 경로의 Base64 인코딩 값
+  privkey.pem: ?  # 두 번째 파일 경로의 Base64 인코딩 값
 
 ---
 apiVersion: v1
