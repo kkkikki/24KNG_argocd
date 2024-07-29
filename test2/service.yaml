@@ -20,13 +20,12 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: localhost
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
             name: streaming-app-service
-            port: 
+            port:
               number: 80
