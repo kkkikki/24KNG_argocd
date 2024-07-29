@@ -1,12 +1,54 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: django-service
+  name: streaming-app-service
 spec:
   selector:
-    app: vod
+    app: streaming-app
   ports:
     - protocol: TCP
-      port: 8000
+      port: 80
       targetPort: 8000
   type: ClusterIP
+  
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: streaming-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: 24kng.fun
+    http:
+      paths:
+      - path: /ko(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: streaming-app-service
+            port: 
+              number: 80
+      - path: /ca(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: streaming-app-service
+            port: 
+              number: 80
+      - path: /us(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: streaming-app-service
+            port: 
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: streaming-app-service
+            port: 
+              number: 80
