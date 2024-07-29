@@ -18,11 +18,8 @@ spec:
         ports:
         - containerPort: 8000
         volumeMounts:
-        - name: ssl
-          mountPath: /app/vod/ssl/
-      volumes:
-      - name: ssl
-        emptyDir: {}
+        - name: web_all
+          mountPath: /app
 
 ---
 apiVersion: v1
@@ -89,8 +86,8 @@ metadata:
   name: ssl-secret
 type: Opaque
 data:
-  fullchain.pem: ? # 첫 번째 파일 경로의 Base64 인코딩 값
-  privkey.pem: ?  # 두 번째 파일 경로의 Base64 인코딩 값
+  fullchain.pem: /etc/nginx/ssl/fullchain.pem # 첫 번째 파일 경로의 Base64 인코딩 값
+  privkey.pem: /etc/nginx/ssl/privkey.pem  # 두 번째 파일 경로의 Base64 인코딩 값
 
 ---
 apiVersion: v1
