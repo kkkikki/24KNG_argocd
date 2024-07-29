@@ -20,7 +20,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: test.24kng.fun
+  - host: www.24kng.fun
     http:
       paths:
       - path: /
