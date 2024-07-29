@@ -22,10 +22,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - 24kng.fun  # 여기에 당신의 도메인을 입력하세요.
+    - www.24kng.fun  # 여기에 당신의 도메인을 입력하세요.
     secretName: 24kn-fun-tls
   rules:
-  - host: 24kng.fun
+  - host: www.24kng.fun
     http:
       paths:
       - path: /
