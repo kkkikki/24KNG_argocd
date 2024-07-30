@@ -57,7 +57,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: kaseykim7123@gmail.com  # 여기에 당신의 이메일을 입력하세요.
+    email: kaseykim7123@gmail.com
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
