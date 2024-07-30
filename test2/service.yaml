@@ -25,6 +25,7 @@ spec:
   tls:
   - hosts:
     - www.24kng.fun
+    - 24kng.fun
     secretName: 24kn-fun-tls
   rules:
   - host: www.24kng.fun
