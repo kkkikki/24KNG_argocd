@@ -1,3 +1,4 @@
+<<<<<<< HEAD:manifest/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,3 +19,25 @@ spec:
         ports:
         - containerPort: 8000
 
+=======
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streaming-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streaming-app
+  template:
+    metadata:
+      labels:
+        app: streaming-app
+    spec:
+      containers:
+      - name: streaming-app
+        image: kaseykim7123/24kng_webpages:66cbc69bad1fa5d161ac9e0db8dd9b25ffe863e4
+        ports:
+        - containerPort: 8000
+
+>>>>>>> 86bd284fea8a7ad28a743ee621e9c61178b5e509:test2/deployment.yaml
