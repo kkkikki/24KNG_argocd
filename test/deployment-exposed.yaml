@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streaming-app
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: streaming-app
+  template:
+    metadata:
+      labels:
+        app: streaming-app
+    spec:
+      containers:
+      - name: streaming-app
+        image: kaseykim7123/24kng_webpages:2df5c245df1fa2e479f07e9dbccc5fa299553806
+        env:
+        - name: DB_PASSWORD
+          value: "projectuserpassword"
+        - name: DB_USER
+          value: "projectadmin"
+        - name: DB_NAME
+          value: "project_24kng"
+        - name: DB_HOST
+          value: "database-24kng.c1euac02wz3l.ap-northeast-2.rds.amazonaws.com"
+        - name: SECRET_KEY
+          value: "django-insecure-c&ktho*@h)&)kuf!ks)&af5wwsvfn&l)lp2z_of5!d$9%@s-7)"
+        ports:
+        - containerPort: 8000
+
