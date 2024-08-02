@@ -24,11 +24,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - www.24kng.fun
-    - 24kng.fun
-    secretName: 24kn-fun-tls
+    - test.24kng.fun
+    secretName: 24kn-fun-tls-2
   rules:
-  - host: www.24kng.fun
+  - host: test.24kng.fun
     http:
       paths:
       - path: /
