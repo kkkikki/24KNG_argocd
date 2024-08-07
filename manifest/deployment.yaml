@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: streaming-app
-        image: kaseykim7123/24kng_webpages:d142da4c942ddfe74bf0ac8cdc7e2dabbfd2ec4b
+        image: kaseykim7123/24kng_webpages:5d06a1cff1c257f72cc52da370dc0706b147b8f2
         env:
         - name: DB_NAME
           valueFrom:
